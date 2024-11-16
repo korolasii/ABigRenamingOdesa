@@ -7,7 +7,7 @@ def selectData(name):
     cursor = connection.cursor()
     
     # Execute a query to fetch all rows from the 'users' table
-    cursor.execute("SELECT * FROM users")
+    cursor.execute("SELECT * FROM streets")
     rows = cursor.fetchall()
 
     # Close the database connection
@@ -17,108 +17,38 @@ def selectData(name):
     return rows
 
 
-# Uncomment the following section if you need to create the 'users' table and add some sample data:
-
-# connection = sqlite3.connect("example.db")  # Connect to the database
+# connection = sqlite3.connect("street.db")  # Connect to the database
 # cursor = connection.cursor()
 
-# Create the 'users' table if it doesn't already exist
+# # Create the 'users' table if it doesn't already exist
+# cursor.execute("""
+# CREATE TABLE IF NOT EXISTS streets (
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     nameOld TEXT NOT NULL,
+#     nameNew TEXT NOT NULL,
+#     history TEXT NOT NULL,
+#     url TEXT NOT NULL  -- Ensure this matches the insertion fields
+# )
+# """)
 
-# Commit the changes to the database
+# # Commit the changes to the database
 # connection.commit()
 
-# Insert sample data into the 'users' table
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Адмирала Лазарева", "Улица Михаила Болтенко", 
-#                 "Переименована в честь Михаила Болтенко, известного командующего во время Второй мировой войны."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Академика Воробьева", "Улица Виталия Нестеренко", 
-#                 "Переименована в честь Виталия Нестеренко, знаменитого ученого в области физики и астрономии."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Проспект Академика Глушко", "Проспект Князя Ярослава Мудрого", 
-#                 "Переименован в честь Князя Ярослава Мудрого, одного из величайших правителей Киевской Руси."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Академика Панкратовой", "Улица Дмитрия Сигаревича", 
-#                 "Переименована в честь Дмитрия Сигаревича, выдающегося ученого в области биохимии."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Амвросия Бучмы", "Улица Михаила Билинского", 
-#                 "Переименована в честь Михаила Билинского, известного украинского писателя и драматурга."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Переулок Апполона Скальковского", "Переулок Зои Пасечной", 
-#                 "Переименован в честь Зои Пасечной, известного украинского культурного деятеля."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Армейская", "Улица Независимости", 
-#                 "Переименована в честь Дня Независимости Украины."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Бабеля", "Улица Дмитрия Иванова", 
-#                 "Переименована в честь Дмитрия Иванова, известного украинского писателя и поэта."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Багрицкого", "Улица Михаила Бойчука", 
-#                 "Переименована в честь Михаила Бойчука, выдающегося художника и основателя бойчуковского стиля."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Переулок Бадаева", "Переулок Марии Станишевской", 
-#                 "Переименован в честь Марии Станишевской, известной украинской актрисы и режиссера."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Переулок Барятинский", "Переулок Дмитрия Лесича", 
-#                 "Переименован в честь Дмитрия Лесича, выдающегося украинского ученого в области географии."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Братьев Поджио", "Улица Василия Фащенко", 
-#                 "Переименована в честь Василия Фащенко, известного украинского деятеля культуры."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Бунина", "Улица Нины Пестрой", 
-#                 "Переименована в честь Нины Пестрой, выдающейся украинской писательницы."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Высоцкого", "Улица Ярослава Баиса", 
-#                 "Переименована в честь Ярослава Баиса, украинского писателя и философа."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Вице-адмирала Азарова", "Улица Андрея Гулого-Гуленко", 
-#                 "Переименована в честь Андрея Гулого-Гуленко, украинского политического деятеля."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Переулок Вице-адмирала Жукова", "Переулок Ивана Луценко", 
-#                 "Переименован в честь Ивана Луценко, известного украинского писателя."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Веры Инбер", "Улица Владимира Рутковского", 
-#                 "Переименована в честь Владимира Рутковского, украинского писателя и поэта."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Гагарина", "Улица Семена Камирного", 
-#                 "Переименована в честь Семена Камирного, советского и украинского космонавта."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Переулок Гагарина", "Переулок Михаила Гордиевского", 
-#                 "Переименован в честь Михаила Гордиевского, украинского инженера и ученого."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Проспект Гагарина", "Проспект Леси Украинки", 
-#                 "Переименован в честь Леси Украинки, великой украинской писательницы и поэтессы."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Гагаринское плато", "Аркадийское плато", 
-#                 "Переименовано в честь Аркадия, украинского писателя и общественного деятеля."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Гавришова", "Улица Андрея Соловьёва", 
-#                 "Переименована в честь Андрея Соловьёва, известного украинского археолога и историка."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Гайдара", "Улица Валентина Симонова", 
-#                 "Переименована в честь Валентина Симонова, известного украинского писателя и дипломата."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Горького", "Улица Богдана Хмельницкого", 
-#                 "Переименована в честь Богдана Хмельницкого, гетмана Украины."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Грекова", "Улица Николая Устименко", 
-#                 "Переименована в честь Николая Устименко, украинского архитектора и историка."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Грозненский проспект", "Проспект Петра Калнышевского", 
-#                 "Переименован в честь Петра Калнышевского, украинского гетмана и общественного деятеля."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Декабристов", "Улица Якова Гурина", 
-#                 "Переименована в честь Якова Гурина, известного украинского ученого и государственного деятеля."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Переулок Дзержинского", "Переулок Михаила Загребельного", 
-#                 "Переименован в честь Михаила Загребельного, известного украинского писателя и поэта."))
-# cursor.execute("INSERT INTO users (nameOld, nameNew, history) VALUES (?, ?, ?)", 
-#                 ("Улица Дзержинского", "Улица Андрея Платонова", 
-#                 "Переименована в честь Андрея Платонова, выдающегося русского писателя."))
+# # Sample data with corrected field names
+# data = [
+#     ("вулиця Ільфа і Петрова", "сім'ї Глодан", 
+#         "Вулицю переіменували на честь Сім’ї Глодан – родини одеського пекаря Юрія, яка мешкала у житловому комплексі “Тірас”. У квітні 2022 року через російський ракетний удар у квартирі загинули його дружина Валерія, тримісячна донька Кіра та теща Людмила.Після цієї втрати Юрій долучився до лав Збройних сил: спочатку служив в полку “Азов”, а потім — у 3-й окремій штурмовій бригаді. Юрій Глодан загинув у вересні 2023-го поблизу міста Бахмут Донецької області.", 
+#         "https://www.google.com/maps/place/%D1%83%D0%BB.+%D0%A1%D0%B5%D0%BC%D1%8C%D0%B8+%D0%93%D0%BB%D0%BE%D0%B4%D0%B0%D0%BD,+%D0%9E%D0%B4%D0%B5%D1%81%D1%81%D0%B0,+%D0%9E%D0%B4%D0%B5%D1%81%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+65000/@46.394196,30.7133267,17z/data=!3m1!4b1!4m6!3m5!1s0x40c63356de2d1e65:0xb323f09d45d523d9!8m2!3d46.3941923!4d30.7159016!16s%2Fg%2F1tl8j6kl?hl=ru&entry=ttu&g_ep=EgoyMDI0MTExMy4xIKXMDSoASAFQAw%3D%3D"),
+# ]
 
-# Commit the changes to the database
+# # Insert data into the 'users' table
+# cursor.executemany("""
+#     INSERT INTO streets (nameOld, nameNew, history, url)
+#     VALUES (?, ?, ?, ?)
+# """, data)
+
+# # Commit the changes to the database
 # connection.commit()
 
-
-# Close the database connection
+# # Close the database connection
 # connection.close()
